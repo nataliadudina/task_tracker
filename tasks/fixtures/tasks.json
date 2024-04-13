@@ -1,0 +1,114 @@
+[
+  {
+  "model": "tasks.task",
+  "pk": 1,
+  "fields": {
+      "name": "Develop Login Page",
+      "description": "Create a login page with username and password fields.",
+      "priority": "high",
+      "deadline": "2024-04-08",
+      "status": "overdue",
+      "completion_time": "2024-04-10",
+      "parent_task": null,
+      "assigned_employee": 1
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 2,
+    "fields": {
+      "name": "Create UI Mockups for New Features",
+      "description": "Design mockups for upcoming features based on project requirements.",
+      "priority": "low",
+      "deadline": "2024-06-10",
+      "status": "to_assign",
+      "completion_time": null,
+      "parent_task": null,
+      "assigned_employee": null
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 3,
+    "fields": {
+      "name": "Test User Authentication",
+      "description": "Write test cases to verify user authentication functionality.",
+      "priority": "medium",
+      "deadline": "2024-04-22",
+      "status": "in_progress",
+      "completion_time": null,
+      "parent_task": null,
+      "assigned_employee": 4
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 4,
+    "fields": {
+      "name": "Create API Endpoints",
+      "description": "Develop RESTful API endpoints for CRUD operations.",
+      "priority": "high",
+      "deadline": "2024-04-15",
+      "status": "completed",
+      "completion_time": "2024-04-12",
+      "parent_task": null,
+      "assigned_employee": 1
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 5,
+    "fields": {
+      "name": "Design Homepage",
+      "description": "Design the layout and elements of the homepage.",
+      "priority": "high",
+      "deadline": "2024-05-19",
+      "status": "in_progress",
+      "completion_time": null,
+      "parent_task": null,
+      "assigned_employee": 3
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 6,
+    "fields": {
+      "name": "Develop the backend of the application",
+      "description": "Create the backend logic and APIs for the application.",
+      "priority": "high",
+      "deadline": "2024-05-27",
+      "status": "in_progress",
+      "completion_time": null,
+      "parent_task": null,
+      "assigned_employee": 1
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 7,
+    "fields": {
+      "name": "Implement user authentication",
+      "description": "Integrate user authentication functionality into the backend.",
+      "priority": "medium",
+      "deadline": "2024-05-20",
+      "status": "to_assign",
+      "completion_time": null,
+      "parent_task": 6,
+      "assigned_employee": null
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 8,
+    "fields": {
+      "name": "Implement user roles and permissions",
+      "description": "Define and implement user roles and permissions management.",
+      "priority": "low",
+      "deadline": "2024-05-25",
+      "status": "in_progress",
+      "completion_time": null,
+      "parent_task": 7,
+      "assigned_employee": 1
+    }
+  }
+]
