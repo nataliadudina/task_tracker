@@ -1,0 +1,62 @@
+[
+  {
+    "model": "employees.employee",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "middle_name": "Albert",
+      "last_name": "Smith",
+      "position": "Developer",
+      "experience": 5,
+      "tasks_completed": 18
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 2,
+    "fields": {
+      "first_name": "Jane ",
+      "middle_name": null,
+      "last_name": "Doe",
+      "position": "Project Manager",
+      "experience": 8,
+      "tasks_completed": 20
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 3,
+    "fields": {
+      "first_name": "Mary-Anne",
+      "middle_name": null,
+      "last_name": "Johnson",
+      "position": "Designer",
+      "experience": 7,
+      "tasks_completed": 15
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 4,
+    "fields": {
+      "first_name": "David",
+      "middle_name": null,
+      "last_name": "Lee",
+      "position": "QA Engineer",
+      "experience": 4,
+      "tasks_completed": 12
+    }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 5,
+    "fields": {
+      "first_name": "Michael,",
+      "middle_name": null,
+      "last_name": "Johnson",
+      "position": "Software Engineer",
+      "experience": 3,
+      "tasks_completed": 11
+    }
+  }
+]
