@@ -7,7 +7,7 @@ class Employee(models.Model):
     last_name = models.CharField(max_length=255, verbose_name='Last Name')
     position = models.CharField(max_length=255, verbose_name='Position')
     experience = models.PositiveSmallIntegerField(verbose_name='Experience')  # years
-    tasks_completed = models.PositiveSmallIntegerField(verbose_name='Tasks Completed')  # number of completed tasks
+    tasks_completed = models.PositiveSmallIntegerField(verbose_name='Tasks Completed', default=0)  # number of completed tasks
 
     @property
     def fullname(self):
