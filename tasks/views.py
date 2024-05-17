@@ -17,7 +17,7 @@ class TaskListApi(generics.ListCreateAPIView):
         - POST: Создание новой задачи.
     """
     serializer_class = TaskSerializer
-    queryset = Task.objects.all()
+    queryset = Task.objects.all().order_by('pk')
     pagination_class = TaskPaginator
 
 
@@ -36,7 +36,7 @@ class TaskDetailApi(generics.RetrieveUpdateDestroyAPIView):
         data = self.request.data    # Получение текущие данные из запроса
         assigned_employee_id = data.get('assigned_employee')    # Проверка, назначен ли сотрудник
 
-        serializer.save(partial=True)    # обновление только переданных полей
+        serializer.save()    # обновление только переданных полей
 
         instance = serializer.instance
 
@@ -103,6 +103,7 @@ class ImportantTasksView(APIView):
 
             # Назначение задачи выбранному сотруднику
             task.assigned_employee = suitable_employee
+            task.status = "in_progress"
             task.save()  # Сохранение изменений в базе данных
 
             task_list.append(task)

@@ -7,14 +7,11 @@ from .models import Task
 
 class TaskSerializer(serializers.ModelSerializer):
     """ Сериализатор задачи"""
-    assigned_employee = serializers.PrimaryKeyRelatedField(queryset=Employee.objects.all(), allow_null=True,
-                                                           validators=[validators.TaskAssignedEmployeeValidator()])
+    assigned_employee = serializers.PrimaryKeyRelatedField(queryset=Employee.objects.all(), allow_null=True)
 
     class Meta:
         model = Task
         fields = '__all__'
-        # validators = [validators.TaskDeadlineValidator(field='deadline'),
-        #               validators.TaskParentTaskValidator('parent_task')
 
     def validate(self, data):
         # Валидация поля deadline
@@ -39,16 +36,17 @@ class TaskSerializer(serializers.ModelSerializer):
 class ImportantTaskSerializer(serializers.Serializer):
     """ Сериализатор важных задач - неназначенных задач, от которых есть зависимые задачи уже в работе """
 
+    id = serializers.IntegerField(source='pk')
     task = serializers.CharField(source='name')   # определяется поле 'task', которое будет содержать имя задачи
     deadline = serializers.DateField()
 
     class Meta:
-        fields = ['task', 'deadline', 'employees']
+        fields = ['id', 'task', 'deadline', 'employee']
 
     def to_representation(self, instance):
         # Добавление информации о назначенном сотруднике
         representation = super().to_representation(instance)  # получение базовой сериализации объекта.
         from employees.serializers import SimpleEmployeeSerializer  # локальный импорт
         # сериализация объекта Employee, связанного с задачей.
-        representation['employees'] = SimpleEmployeeSerializer(instance.assigned_employee).data
+        representation['employee'] = SimpleEmployeeSerializer(instance.assigned_employee).data
         return representation

@@ -38,17 +38,3 @@ class TaskParentTaskValidator:
                 _('A task cannot be its own parent.'),
                 code='parent_task_self_reference',
             )
-
-
-class TaskAssignedEmployeeValidator:
-    """ Проверка, что назначенный на задачу сотрудник существует """
-
-    def __call__(self, value):
-        if value is not None:
-            if Employee.objects.filter(pk=value.pk).exists():
-                return value.id
-            else:
-                raise ValidationError(
-                    _('The assigned employee does not exist.'),
-                    code='assigned_employee_does_not_exist',
-                )
